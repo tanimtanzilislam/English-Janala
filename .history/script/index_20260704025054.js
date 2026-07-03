@@ -8,15 +8,7 @@ const loadLessons=()=>{
 const displayLevelWord=(words)=>{
     //console.log(words);
 
-    const  wordContainer=document.getElementById('word-container');
-    //wordContainer.innerHTML=" ";
-
-    words.forEach(word=>{
-        console.log(word);
-        const card=document.createElement("div");
-        card.innerHTML=`<p>Cat</p>`
-        wordContainer.append(card);
-    })
+    const  word-container=
 }
 
 //loadLesson();

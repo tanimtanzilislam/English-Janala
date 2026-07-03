@@ -9,7 +9,7 @@ const displayLevelWord=(words)=>{
     //console.log(words);
 
     const  wordContainer=document.getElementById('word-container');
-    //wordContainer.innerHTML=" ";
+    wordContainer.innerHTML=" ";
 
     words.forEach(word=>{
         console.log(word);
