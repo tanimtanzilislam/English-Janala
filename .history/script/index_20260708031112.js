@@ -34,7 +34,7 @@ const displayLevelWord = (words) => {
           "${word.meaning ? word.meaning : "অর্থ পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি"}"
         </div>
         <div class="flex justify-between items-center">
-          <button onclick="my_modal_5.showModal()" class="btn bg-[#1A91FF10] hover:btn-primary">
+          <button class="btn bg-[#1A91FF10] hover:btn-primary">
             <i class="fa-solid fa-circle-info"></i>
           </button>
           <button class="btn bg-[#1A91FF10] hover:btn-primary">
@@ -50,12 +50,8 @@ const displayLevelWord = (words) => {
 
 
 const removeActive =()=>{
-
-  const lessonButtons = document.querySelectorAll(".lesson-btn");
- // console.log(lessonButtons);
- lessonButtons.forEach(btn=>btn.classList.remove("active"));
-
-
+  
+  const lesson
 }
 
 const loadLevelWord = (id) => {
@@ -65,7 +61,6 @@ const loadLevelWord = (id) => {
   fetch(url)
     .then(res => res.json())
     .then(data => {
-      removeActive();
       const clickBtn = document.getElementById(`level-btn-${id}`);
       clickBtn.classList.add("active");
       displayLevelWord(data.data);
