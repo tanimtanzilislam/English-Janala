@@ -10,8 +10,8 @@ const displayLevelWord = (words) => {
 
   if (words.length == 0) {
     wordContainer.innerHTML = `
-      <div class="text-center col-span-full rounded-xl py-10 space-y-6 font-bangla">
-        <img class="mx-auto" src="./assets/alert-error.png" alt="Alert Icon">
+      <div class="text-center  col-span-full rounded-xl py-10 space-y-6 font-bangla">
+        <img  class="mx-auto" src="./assets/alert-error.png" alt="Alert Icon">
         <p class="text-xl font-medium text-gray-400">
           এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।
         </p>
@@ -21,6 +21,10 @@ const displayLevelWord = (words) => {
     return;
   }
 
+
+  const loadWordDetail=()=>{
+    const url =``
+  }
   words.forEach(word => {
     console.log(word);
 
@@ -48,10 +52,15 @@ const displayLevelWord = (words) => {
   });
 };
 
-const removeActive = () => {
+
+const removeActive =()=>{
+
   const lessonButtons = document.querySelectorAll(".lesson-btn");
-  lessonButtons.forEach(btn => btn.classList.remove("active"));
-};
+ // console.log(lessonButtons);
+ lessonButtons.forEach(btn=>btn.classList.remove("active"));
+
+
+}
 
 const loadLevelWord = (id) => {
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
@@ -65,50 +74,6 @@ const loadLevelWord = (id) => {
       clickBtn.classList.add("active");
       displayLevelWord(data.data);
     });
-};
-
-// {word: 'Eager', meaning: 'আগ্রহী', pronunciation: 'ইগার', level: 1, sentence: 'The kids were eager to open their gifts.', …}
-
-
-
-
-const loadWordDetail = async (id) => {
-  const url = `https://openapi.programming-hero.com/api/word/${id}`;
-  console.log(url);
-
-  const res = await fetch(url);
-  const details = await res.json();
-
-  DisplayWordDetails(details.data);
-};
-
-const DisplayWordDetails = (word) => {
-  console.log(word);
-
-  const DetailsBox = document.getElementById("details-container");
-  DetailsBox.innerHTML = `
-   <div class="">
-         <h2 class="text-2xl font-bold">${word.word}(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
-      </div>
-  
-  <div class="">
-         <h2 class="font-bold">Meaning</h2>
-         <p>${word.meaning}</p>
-      </div>
-
-      <div class="">
-         <h2 class="font-bold">Example</h2>
-         <p>${word.sentence}</p>
-      </div>
-      <div class="">
-         <h2 class="font-bold">Synonym</h2>
-         <span class="btn">Syn1</span>
-         <span class="btn">Syn2</span>
-         <span class="btn">Syn3</span>
-      </div>
-    </div>`;
-
-  document.getElementById('word_modal').showModal();
 };
 
 const displayLesson = (lessons) => {

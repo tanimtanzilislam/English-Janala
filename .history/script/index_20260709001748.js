@@ -67,11 +67,6 @@ const loadLevelWord = (id) => {
     });
 };
 
-// {word: 'Eager', meaning: 'আগ্রহী', pronunciation: 'ইগার', level: 1, sentence: 'The kids were eager to open their gifts.', …}
-
-
-
-
 const loadWordDetail = async (id) => {
   const url = `https://openapi.programming-hero.com/api/word/${id}`;
   console.log(url);
@@ -86,27 +81,7 @@ const DisplayWordDetails = (word) => {
   console.log(word);
 
   const DetailsBox = document.getElementById("details-container");
-  DetailsBox.innerHTML = `
-   <div class="">
-         <h2 class="text-2xl font-bold">${word.word}(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
-      </div>
-  
-  <div class="">
-         <h2 class="font-bold">Meaning</h2>
-         <p>${word.meaning}</p>
-      </div>
-
-      <div class="">
-         <h2 class="font-bold">Example</h2>
-         <p>${word.sentence}</p>
-      </div>
-      <div class="">
-         <h2 class="font-bold">Synonym</h2>
-         <span class="btn">Syn1</span>
-         <span class="btn">Syn2</span>
-         <span class="btn">Syn3</span>
-      </div>
-    </div>`;
+  DetailsBox.innerHTML = "";
 
   document.getElementById('word_modal').showModal();
 };

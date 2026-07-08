@@ -86,19 +86,14 @@ const DisplayWordDetails = (word) => {
   console.log(word);
 
   const DetailsBox = document.getElementById("details-container");
-  DetailsBox.innerHTML = `
-   <div class="">
-         <h2 class="text-2xl font-bold">${word.word}(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
-      </div>
-  
-  <div class="">
+  DetailsBox.innerHTML = ` <div class="">
          <h2 class="font-bold">Meaning</h2>
-         <p>${word.meaning}</p>
+         <p>আগ্রহী</p>
       </div>
 
       <div class="">
          <h2 class="font-bold">Example</h2>
-         <p>${word.sentence}</p>
+         <p>Lorem ipsum dolor sit amet.</p>
       </div>
       <div class="">
          <h2 class="font-bold">Synonym</h2>

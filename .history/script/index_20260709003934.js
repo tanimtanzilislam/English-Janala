@@ -93,12 +93,12 @@ const DisplayWordDetails = (word) => {
   
   <div class="">
          <h2 class="font-bold">Meaning</h2>
-         <p>${word.meaning}</p>
+         <p>${word.meaning</p>
       </div>
 
       <div class="">
          <h2 class="font-bold">Example</h2>
-         <p>${word.sentence}</p>
+         <p>Lorem ipsum dolor sit amet.</p>
       </div>
       <div class="">
          <h2 class="font-bold">Synonym</h2>
