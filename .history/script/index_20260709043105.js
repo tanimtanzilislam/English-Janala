@@ -57,7 +57,7 @@ const displayLevelWord = (words) => {
           <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1A91FF10] hover:btn-primary">
             <i class="fa-solid fa-circle-info"></i>
           </button>
-          <button onclick="pronounceWord('${word.word}')" class="btn bg-[#1A91FF10] hover:btn-primary">
+          <button onclick="pronounceWord(word) " class="btn bg-[#1A91FF10] hover:btn-primary">
             <i class="fa-solid fa-volume-high"></i>
           </button>
         </div>
