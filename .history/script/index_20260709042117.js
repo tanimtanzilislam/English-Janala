@@ -160,8 +160,6 @@ loadLessons();
 
 document.getElementById('btn-search').addEventListener('click',()=>{
 
-  removeActive();
-
   const input=document.getElementById('input-search');
   const searchValue= input.value.trim().toLowerCase();
   console.log(searchValue);
@@ -173,7 +171,7 @@ document.getElementById('btn-search').addEventListener('click',()=>{
     console.log(allWords);
     const filterWords= allWords.filter(word=>word.word.toLowerCase().includes(searchValue));
 
-    displayLevelWord(filterWords);
+    displayLevel
   });
 
 })

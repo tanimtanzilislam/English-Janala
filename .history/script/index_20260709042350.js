@@ -160,7 +160,7 @@ loadLessons();
 
 document.getElementById('btn-search').addEventListener('click',()=>{
 
-  removeActive();
+  removeActive()l
 
   const input=document.getElementById('input-search');
   const searchValue= input.value.trim().toLowerCase();
