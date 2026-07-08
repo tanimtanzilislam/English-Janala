@@ -1,22 +1,29 @@
-const createElements = (arr = []) => {
-  const htmlElement = arr.map(el => `<span class="btn"> ${el}</span>`);
-  return htmlElement.join(" ");
-};
+const createElements=(arr)=>{
+    
+    const htmlElement= arr.map(el=>`<span class="btn"> ${el}</span>`);
+    return htmlElement.join(" ");
+}
 
-const manageSpinner = (status) => {
-  if (status == true) {
+
+
+const manageSpinner=(status)=>{
+  if(status==true){
+
     document.getElementById('spinner').classList.remove("hidden");
-    document.getElementById('word-container').classList.add("hidden");
-  } else {
-    document.getElementById('word-container').classList.remove("hidden");
-    document.getElementById('spinner').classList.add("hidden");
-  }
-};
+     document.getElementById('word-container').classList.add("hidden");
 
-const synonyms = ["jsnj", "sdef", "deef"];
+  }else{
+    document.getElementById('word-container').classList.remove("hidden");
+     document.getElementById('spinner').classList.add("hidden");
+  }
+}
+const synonyms=["jsnj","sdef","deef"];
 createElements(synonyms);
 
+
+
 const loadLessons = () => {
+  manageSpinner(true);
   fetch('https://openapi.programming-hero.com/api/levels/all')
     .then(res => res.json())
     .then(json => displayLesson(json.data));
@@ -36,8 +43,6 @@ const displayLevelWord = (words) => {
         <h2 class="font-bold text-4xl">নেক্সট Lesson এ যান</h2>
       </div>
     `;
-
-    manageSpinner(false);
     return;
   }
 
@@ -66,8 +71,6 @@ const displayLevelWord = (words) => {
 
     wordContainer.append(card);
   });
-
-  manageSpinner(false);
 };
 
 const removeActive = () => {
@@ -76,8 +79,6 @@ const removeActive = () => {
 };
 
 const loadLevelWord = (id) => {
-  manageSpinner(true);
-
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   console.log(url);
 
@@ -85,13 +86,16 @@ const loadLevelWord = (id) => {
     .then(res => res.json())
     .then(data => {
       removeActive();
-
       const clickBtn = document.getElementById(`level-btn-${id}`);
       clickBtn.classList.add("active");
-
       displayLevelWord(data.data);
     });
 };
+
+// {word: 'Eager', meaning: 'আগ্রহী', pronunciation: 'ইগার', level: 1, sentence: 'The kids were eager to open their gifts.', …}
+
+
+
 
 const loadWordDetail = async (id) => {
   const url = `https://openapi.programming-hero.com/api/word/${id}`;
@@ -108,29 +112,26 @@ const DisplayWordDetails = (word) => {
 
   const DetailsBox = document.getElementById("details-container");
   DetailsBox.innerHTML = `
-    <div>
-      <h2 class="text-2xl font-bold">
-        ${word.word}(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})
-      </h2>
-    </div>
-
-    <div>
-      <h2 class="font-bold">Meaning</h2>
-      <p>${word.meaning}</p>
-    </div>
-
-    <div>
-      <h2 class="font-bold">Example</h2>
-      <p>${word.sentence}</p>
-    </div>
-
-    <div>
-      <h2 class="font-bold">Synonym</h2>
-      <div>
-        ${createElements(word.synonyms)}
+   <div class="">
+         <h2 class="text-2xl font-bold">${word.word}(<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
       </div>
-    </div>
-  `;
+  
+  <div class="">
+         <h2 class="font-bold">Meaning</h2>
+         <p>${word.meaning}</p>
+      </div>
+
+      <div class="">
+         <h2 class="font-bold">Example</h2>
+         <p>${word.sentence}</p>
+      </div>
+      <div class="">
+         <h2 class="font-bold">Synonym</h2>
+         <div class=" ">
+         ${createElements(word.synonyms)}
+         </div>
+      </div>
+    </div>`;
 
   document.getElementById('word_modal').showModal();
 };
